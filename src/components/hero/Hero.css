@@ -1,0 +1,93 @@
+.hero-container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero {
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px var(--6) var(--8) var(--6);
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100vw - var(--6) * 2);
+    height: calc(100vh - var(--8));
+}
+
+.hero .logo {
+    position: relative;
+    padding: var(--7) 0px;
+    width: 100%;
+}
+
+.logo .lottie {
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.logo .image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.image-wrapper .img-box {
+    border-radius: var(--3);
+    margin-left: 8%;
+    width: 33%;
+    height: 60%;
+    object-fit: cover;
+    animation: img .8s cubic-bezier(0.92, -0.02, 0, 0.99) both 3.2s;
+}
+
+@keyframes img {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+
+    100% {
+        opacity: 1;
+        width: 33%;
+    }
+}
+
+.hero .local-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.hero .footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--5);
+    width: 100%;
+}
+
+.hero .role-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--2);
+}
+
+.footer .bottom {
+    color: var(--secondary);
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.bottom .menu-wrapper {
+    display: flex;
+    gap: var(--5);
+}
