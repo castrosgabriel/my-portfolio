@@ -4,10 +4,10 @@ import './App.css'
 
 const App = () => {
   return (
-    <>
+    <div>
       <Hero />
       <ProjectList />
-    </>
+    </div>
   )
 }
 

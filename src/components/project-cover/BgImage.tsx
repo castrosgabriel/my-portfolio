@@ -17,7 +17,7 @@ interface BgImageProps {
     brand: string
 }
 
-const BgImage = ({brand}: BgImageProps) => {
+const BgImage = ({ brand }: BgImageProps) => {
     switch (brand) {
         case 'nubank':
             return (
@@ -29,10 +29,18 @@ const BgImage = ({brand}: BgImageProps) => {
         case 'mp':
             return (
                 <div className='image-project'>
-                    <img style={appNuFirst} width={375} src={Nu1} alt='nu-1' />
-                    <img style={appNuSecond} width={375} src={Nu2} alt='nu-2' />
                 </div>
             );
+        case 'ugly':
+            return (
+                <div className='image-project'>
+                </div>
+            );
+        case 'pan':
+            return (
+                <div className='image-project'>
+                </div>
+            )
         default:
             return null;
     }

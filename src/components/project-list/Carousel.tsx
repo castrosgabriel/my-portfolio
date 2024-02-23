@@ -7,32 +7,7 @@ interface CarouselProps {
 
 const Carousel: FC<CarouselProps> = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const container = containerRef.current;
-        const scrollPosition = container.scrollTop;
-        const slideHeight = container.scrollHeight / children.length;
-
-        const newIndex = Math.floor(scrollPosition / slideHeight);
-        setActiveIndex(newIndex);
-      }
-    };
-
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, [children]);
-
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const Dot = ({ active = false }) => {
     return (
@@ -52,27 +27,33 @@ const Carousel: FC<CarouselProps> = ({ children }) => {
     )
   }
 
-  // const goToPrevSlide = () => {
-  //   setActiveIndex((prevIndex) =>
-  //     prevIndex === 0 ? children.length - 1 : prevIndex - 1
-  //   );
-  // };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (carouselRef.current) {
+        const { scrollTop } = carouselRef.current;
+        const slideHeight = carouselRef.current.clientHeight;
+        const newIndex = Math.ceil(scrollTop / slideHeight);
+        console.log(newIndex);
+        setActiveIndex(newIndex);
+      }
+    };
 
-  const goToNextSlide = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === children.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+    if (carouselRef.current) {
+      carouselRef.current.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (carouselRef.current) {
+        carouselRef.current.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, []);
 
   return (
-    <div onClick={goToNextSlide} className="carousel-container">
-      <div className="carousel-inner" style={{ transform: `translateY(-${activeIndex * 100}%)` }}>
+    <div className='carousel-container'>
+      <div className='carousel-inner' ref={carouselRef}>
         {Children.map(children, (child, index) => (
-          <div className={
-            `carousel-item 
-            ${index > activeIndex && 'next'} 
-            ${index < activeIndex && 'prev'}
-            `} key={index}>
+          <div className={`carousel-item`} key={index}>
             {child}
           </div>
         ))}

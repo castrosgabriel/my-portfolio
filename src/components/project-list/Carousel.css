@@ -1,7 +1,6 @@
 .carousel-container {
   position: relative;
-  width: 1024px;
-  height: calc(600px + var(--5));
+  height: 100vh;
   display: flex;
 }
 
@@ -10,11 +9,19 @@
   flex-direction: column;
   gap: var(--5);
   transition: transform 0.5s ease;
+  overflow-y: auto;
+  width: 1024px;
+  scroll-snap-type: y mandatory;
+  margin-left: var(--8);
+  margin-top: 18vh;
+  padding-bottom: var(--10);
+  border-radius: var(--4) var(--4) 0 0;
 }
 
 .carousel-item {
   display: inline-block;
   transition: all 0.5s ease;
+  scroll-snap-align: start;
 }
 
 .carousel-item.prev {

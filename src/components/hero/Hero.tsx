@@ -7,14 +7,14 @@ import LogoAnimation from '../../assets/lottie/logo-animation.json';
 const Hero = () => {
     const { scrollYProgress } = useScroll()
     const styleMenu = { opacity: useTransform(scrollYProgress, [0, 1], [1, 0]) }
-    const styleFooter = { width: useTransform(scrollYProgress, [0, 1], ['100%', '78%']) }
+    const styleFooter = { width: useTransform(scrollYProgress, [0, .8], ['100%', '78%']) }
     const styleContainer = {
         y: useTransform(scrollYProgress, [0, 1], ['0', '40vh']),
         height: '100vh'
     }
     const styleLogo = {
         opacity: useTransform(scrollYProgress, [0, .6], [1, 0]),
-        y: useTransform(scrollYProgress, [0, 1], ['0vw', '20vw'])
+        y: useTransform(scrollYProgress, [0, 1], ['0vw', '15vw'])
     }
     const styleLocal = {
         width: useTransform(scrollYProgress, [0, 1], ['100%', '140%']),

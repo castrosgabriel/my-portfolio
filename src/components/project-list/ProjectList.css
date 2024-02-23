@@ -14,3 +14,14 @@
     gap: var(--4);
     overflow: hidden;
 }
+
+.clients {
+    display: flex;
+    top: 0;
+    width: 80%;
+    position: fixed;
+    justify-content: space-between;
+    gap: var(--4);
+    margin-top: var(--4);
+    color: var(--secondary);
+}
