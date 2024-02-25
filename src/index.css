@@ -116,3 +116,13 @@ h2 {
   line-height: var(--6);
   letter-spacing: -1.92px;
 }
+
+h3 {
+  color: var(--foreground, #FFF);
+  font-family: 'integralcf-regular';
+  font-size: var(--6);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  margin: 0;
+}

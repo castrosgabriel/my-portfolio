@@ -1,5 +1,6 @@
 import Hero from "./components/hero/Hero"
 import ProjectList from "./components/project-list/ProjectList"
+import OtherProjects from "./components/projects/OtherProjects"
 import './App.css'
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
     <div>
       <Hero />
       <ProjectList />
+      <OtherProjects />
     </div>
   )
 }

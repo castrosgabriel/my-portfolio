@@ -1,10 +1,10 @@
 .logo-small {
-    position: fixed;
+    position: absolute;
     padding: var(--5);
-    bottom: 0;
+    top: calc(100vh - 220px);
     left: 0;
     z-index: 99;
-}
+    }
 
 .project-list {
     flex-direction: column;
@@ -13,13 +13,22 @@
     justify-content: center;
     gap: var(--4);
     overflow: hidden;
+    position: relative;
+}
+
+.project-list .projects {
+    padding: var(--9) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--4);
 }
 
 .clients {
     display: flex;
     top: 0;
     width: 80%;
-    position: fixed;
+    position: absolute;
     justify-content: space-between;
     gap: var(--4);
     margin-top: var(--4);
