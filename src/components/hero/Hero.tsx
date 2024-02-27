@@ -7,7 +7,7 @@ import LogoAnimation from '../../assets/lottie/logo-animation.json';
 const Hero = () => {
     return (
         <motion.div className='hero-container'>
-            <div className='hero'>
+            <motion.div className='hero'>
                 <motion.div className='logo'>
                     <div className='image-wrapper'>
                         <img className='img-box' src={Profile} alt='profile' />
@@ -33,7 +33,7 @@ const Hero = () => {
                         </div>
                     </motion.div>
                 </motion.div>
-            </div>
+            </motion.div>
         </motion.div>
     );
 }

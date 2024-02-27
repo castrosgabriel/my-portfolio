@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+
 }
 
 .hero {
@@ -14,6 +15,7 @@
     align-items: center;
     width: calc(100vw - var(--6) * 2);
     height: calc(100vh - var(--8));
+    overflow: visible;
 }
 
 .hero .logo {
@@ -78,6 +80,7 @@
     display: flex;
     justify-content: space-between;
     gap: var(--2);
+    top: 10vh;
 }
 
 .footer .bottom {

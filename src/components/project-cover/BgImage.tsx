@@ -1,3 +1,4 @@
+import React, { forwardRef } from 'react'
 import { Nu1, Nu2 } from '../../assets/png'
 import './ProjectCover.css'
 
@@ -17,33 +18,33 @@ interface BgImageProps {
     brand: string
 }
 
-const BgImage = ({ brand }: BgImageProps) => {
+const BgImage = forwardRef(({ brand }: BgImageProps, ref: React.Ref<HTMLDivElement>) => {
     switch (brand) {
         case 'nubank':
             return (
-                <div className='image-project'>
-                    <img style={appNuFirst} width={375} src={Nu1} alt='nu-1' />
-                    <img style={appNuSecond} width={375} src={Nu2} alt='nu-2' />
+                <div ref={ref} className='image-project'>
+                    <img style={appNuFirst} width={375} src={Nu1} />
+                    <img style={appNuSecond} width={375} src={Nu2} />
                 </div>
             );
-        case 'mp':
+        case 'mercado pago':
             return (
-                <div className='image-project'>
+                <div ref={ref} className='image-project'>
                 </div>
             );
         case 'ugly':
             return (
-                <div className='image-project'>
+                <div ref={ref} className='image-project'>
                 </div>
             );
-        case 'pan':
+        case 'banco pan':
             return (
-                <div className='image-project'>
+                <div ref={ref} className='image-project'>
                 </div>
             )
         default:
             return null;
     }
-}
+})
 
 export default BgImage;

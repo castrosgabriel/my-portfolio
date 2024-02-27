@@ -1,36 +1,63 @@
 .logo-small {
-    position: absolute;
-    padding: var(--5);
-    top: calc(100vh - 220px);
-    left: 0;
-    z-index: 99;
-    }
-
-.project-list {
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--4);
-    overflow: hidden;
-    position: relative;
+  position: fixed;
+  padding: var(--5);
+  top: calc(100vh - 220px);
+  left: 0;
+  z-index: 99;
 }
 
+.project-list {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--4);
+  overflow: hidden;
+  position: relative;
+}
+
+
 .project-list .projects {
-    padding: var(--9) 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--4);
+  margin: var(--9) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--4);
+
 }
 
 .clients {
-    display: flex;
-    top: 0;
-    width: 80%;
-    position: absolute;
-    justify-content: space-between;
-    gap: var(--4);
-    margin-top: var(--4);
-    color: var(--secondary);
+  display: flex;
+  top: 0;
+  width: 80%;
+  position: fixed;
+  justify-content: space-between;
+  gap: var(--4);
+  margin-top: var(--4);
+  color: var(--secondary);
+}
+
+.pag-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--3);
+  right: 0;
+  padding-right: var(--6);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+
+.dot {
+  transition: all .3s ease;
+  fill: var(--foreground);
+  opacity: .3;
+}
+
+.dot.active {
+  transition: all .3s ease;
+  opacity: 1;
+  transform: scale(1.3);
 }

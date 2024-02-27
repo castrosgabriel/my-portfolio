@@ -5,6 +5,7 @@
     border-radius: var(--4);
     position: relative;
     overflow: hidden;
+    transition: all 0.5s ease;
 }
 
 .cover-container .info {
