@@ -10,7 +10,7 @@ const OtherProjects = () => {
                 <h3>GRAPHIC</h3>
             </div>
             <div className='img-grid'>
-                <img src={Grid}/>
+                <img src={Grid} />
             </div>
             <div className='main-row'>
                 <h1>DESIGN</h1>

@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Nu1, Nu2 } from '../../assets/png'
+import { Nu1, Nu2, Mp, Pan, Ugly } from '../../assets/png'
 import './ProjectCover.css'
 
 const appNuFirst = {
@@ -30,16 +30,19 @@ const BgImage = forwardRef(({ brand }: BgImageProps, ref: React.Ref<HTMLDivEleme
         case 'mercado pago':
             return (
                 <div ref={ref} className='image-project'>
+                    <img src={Mp} width={'100%'} />
                 </div>
             );
         case 'ugly':
             return (
                 <div ref={ref} className='image-project'>
+                    <img src={Ugly} width={'100%'} />
                 </div>
             );
         case 'banco pan':
             return (
                 <div ref={ref} className='image-project'>
+                    <img src={Pan} width={'100%'} />
                 </div>
             )
         default:

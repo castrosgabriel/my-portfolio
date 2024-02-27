@@ -24,7 +24,7 @@ p {
   --nubank: rgb(130, 10, 209);
   --secondary: var(--color-black-60, rgb(109, 109, 109));
   --support: var(--color-black-80, rgb(56, 56, 56));
-  --ugly: rgb(14, 14, 14);
+  --ugly: rgb(19, 19, 19);
 }
 
 /* Primitives */

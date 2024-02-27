@@ -23,11 +23,11 @@ const projectArray = [
         brand: 'ugly'
     },
     {
-        title: 'Design System <br /> and App Concept',
+        title: 'New Digital<br />Bank',
         description: 'Launching of the MVP of the wallet',
         logo: PanLogo,
         backgroundColor: '#EFEFEF',
-        contentColor: 'var(--background)',
+        contentColor: 'var(--support)',
         brand: 'banco pan'
     }
 ]

@@ -17,7 +17,7 @@ const MotionBgImage = motion(BgImage)
 
 const ProjectCover = forwardRef(({ active = false, title, description, logo, backgroundColor, contentColor = 'var(--foreground)', brand }: ProjectCoverProps, ref: React.Ref<HTMLDivElement>) => {
     const inViewRef = useRef(null)
-    const isInView = useInView(inViewRef)
+    const isInView = useInView(inViewRef, { margin: '-50% 0px -50% 0px' })
 
     const animateLogo = useAnimation()
     const animateTitle = useAnimation()
@@ -56,11 +56,11 @@ const ProjectCover = forwardRef(({ active = false, title, description, logo, bac
             <motion.div ref={inViewRef} className='info'>
                 <motion.img animate={animateLogo} style={{ opacity: 0, y: 30 }} height={56} src={logo} alt='logo' />
                 <div className='title'>
-                    <motion.p style={{ y: 30, color:contentColor, opacity: 0 }} animate={animateDescription} className='text-md'>{description}</ motion.p>
-                    <motion.h2 style={{ y: 30, color:contentColor, opacity: 0 }} animate={animateTitle} dangerouslySetInnerHTML={{ __html: title }} />
+                    <motion.p style={{ y: 30, color: contentColor, opacity: 0 }} animate={animateDescription} className='text-md'>{description}</ motion.p>
+                    <motion.h2 style={{ y: 30, color: contentColor, opacity: 0 }} animate={animateTitle} dangerouslySetInnerHTML={{ __html: title }} />
                 </div>
             </motion.div>
-            <MotionBgImage animate={animateBg} style={{ scale: 0.9, x: 100, opacity: 0 }} brand={brand} />
+            <MotionBgImage animate={animateBg} style={{ opacity: 0, scale: 0.9, x: 100 }} brand={brand} />
         </motion.div>
     )
 })
