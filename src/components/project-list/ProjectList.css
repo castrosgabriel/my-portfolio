@@ -12,18 +12,16 @@
   align-items: center;
   justify-content: center;
   gap: var(--4);
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 
-
 .project-list .projects {
-  margin: var(--9) 0;
+  margin: 17rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--4);
-
 }
 
 .clients {
