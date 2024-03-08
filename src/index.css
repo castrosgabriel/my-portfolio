@@ -7,8 +7,6 @@
 
 html {
   font-size: calc(min(max(1vw, 12px), 16px));
-  scroll-behavior: smooth;
-
 }
 
 p {

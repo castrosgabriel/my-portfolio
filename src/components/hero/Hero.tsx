@@ -12,18 +12,18 @@ const Hero = () => {
         y: useTransform(scrollYProgress, [0, .6], ['0vh', '-60vh'])
     }
     const roleStyle = {
-        width: useTransform(scrollYProgress, [0, 1], ['100%', '78%'])
+        width: useTransform(scrollYProgress, [0, 1], ['100%', '77%'])
     }
     const logoStyle = {
         y: useTransform(scrollYProgress, [0, 1], [0, 300]),
-        opacity: useTransform(scrollYProgress, [0, .5], [1, 0])
+        opacity: useTransform(scrollYProgress, [0, .6], [1, 0])
     }
     const locationStyle = {
         width: useTransform(scrollYProgress, [0, 1], ['100%', '200%']),
         opacity: useTransform(scrollYProgress, [0, .4], [1, 0])
     }
     const menuStyle = {
-        opacity: useTransform(scrollYProgress, [0, .5], [1, 0]),
+        opacity: useTransform(scrollYProgress, [0, .6], [1, 0]),
         y: useTransform(scrollYProgress, [0, 1], [0, 300])
     }
 
