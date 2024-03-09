@@ -1,7 +1,7 @@
 .hero-container {
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .hero {
@@ -15,7 +15,7 @@
     width: calc(100vw - var(--6) * 2);
     height: calc(100vh - var(--8));
     overflow: visible;
-    position: fixed;
+    /* position: fixed; */
 }
 
 .hero .logo {
@@ -82,6 +82,7 @@
     gap: var(--2);
     top: 10vh;
     align-self: center;
+    width: 100%;
 }
 
 .footer .bottom {

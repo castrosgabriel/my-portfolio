@@ -1,9 +1,9 @@
 import ProjectCover from "../project-cover/ProjectCover"
-import { motion, useAnimation, useInView, useScroll, useTransform } from 'framer-motion'
 import { LogoSmall } from '../../assets/svg'
 import './ProjectList.css'
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useLayoutEffect, useRef, useState } from "react"
 import { projectArray } from './projectArray'
+import gsap from 'gsap'
 
 const Dot = ({ active = false }) => {
     return (
@@ -18,43 +18,56 @@ const ProjectList = () => {
     const projectRefs = useRef(projectArray.map(() => useRef(null)))
     const projectListRef = useRef(null)
 
-    const { scrollYProgress } = useScroll({ target: projectListRef, offset: ['0 .8', '0 0'], })
-    const y = useTransform(scrollYProgress, [0, 1], [-300, 0])
+    useLayoutEffect(() => {
+        const scrollTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.project-list',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: true,
+                pin: true,
+                markers: true,
+                snap: {
+                    snapTo: 1 / (projectArray.length - 1),
+                    duration: { min: 0.1, max: 0.5 },
+                    delay: 0.2,
+                    ease: 'power1.inOut',
+                    onComplete: () => {
+                        const index = Math.round(scrollTl.progress() * (projectArray.length - 1))
+                        setActiveProjectIndex(index)
+                    }
+                }
+            },
+        })
 
-    const clientsAnimation = useAnimation()
-    const pagContainerAnimation = useAnimation()
-    const logoAnimation = useAnimation()
+        scrollTl.to('.project-list', {
+            ease: 'none',
+        })
+            .to('.projects', {
+                y: -1900,
+                ease: 'none',
+            }, 0)
 
-    const listIsInView = useInView(projectListRef, { margin: ' 0px 0px -50% 0px' })
-    const isInViewArray = projectRefs.current.map(ref => useInView(ref, { margin: '-50% 0px -50% 0px' }))
 
-    const initialPosition = useMemo(() => (listIsInView ? 0 : 100), [listIsInView])
+        return () => {
+            scrollTl.kill()
+        }
+    }, [])
 
-    useEffect(() => {
-        clientsAnimation.start({ y: -initialPosition })
-        pagContainerAnimation.start({ x: initialPosition })
-        logoAnimation.start({ x: -initialPosition })
-    }, [initialPosition])
-
-    useEffect(() => {
-        isInViewArray.forEach((isInView, index) => {
-            if (isInView) { setActiveProjectIndex(index) }
-        });
-    }, [isInViewArray]);
 
     return (
-        <motion.div className='project-list'>
-            <motion.div animate={clientsAnimation} style={{ y: -100 }} className='clients text-md'>
+        <div className='project-list'>
+            <div className='clients text-md'>
                 {projectArray.map(project =>
                     <p key={project.title}>{project.brand.toUpperCase()}</p>)}
-            </motion.div>
-            <motion.div animate={pagContainerAnimation} style={{ x: 100 }} className='pag-container'>
+            </div>
+            <div className='pag-container'>
                 {projectArray.map((project, index) => (
                     <Dot key={index} active={index === activeProjectIndex} />
                 ))}
-            </motion.div>
-            <motion.img animate={logoAnimation} style={{ x: -100 }} className='logo-small' src={LogoSmall} alt='logo' />
-            <motion.div style={{ y: y }} ref={projectListRef} className='projects'>
+            </div>
+            <img className='logo-small' src={LogoSmall} alt='logo' />
+            <div ref={projectListRef} className='projects'>
                 {projectArray.map((project, index) => (
                     <ProjectCover
                         ref={projectRefs.current[index]}
@@ -66,9 +79,10 @@ const ProjectList = () => {
                         backgroundColor={project.backgroundColor}
                         brand={project.brand}
                         contentColor={project.contentColor}
+                        style={index !== activeProjectIndex ? { opacity: 0.5, transform: 'scale(.8)' } : {}}
                     />))}
-            </motion.div>
-        </motion.div>
+            </div>
+        </div>
     )
 }
 
